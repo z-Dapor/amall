@@ -211,4 +211,8 @@
     WHERE name LIKE #{name}
   </select>
 
+  <select id="selectStockByProductId"  resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    SELECT stock FROM product WHERE id = #{productId} for update
+  </select>
+
 </mapper>
