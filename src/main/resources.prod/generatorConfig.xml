@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!-- 可通过properties文件来导入配置信息 -->
+    <properties url="file:///C:/Users/Administrator/amall/src/main/resources/datasource.properties"></properties>
+
+
+    <!-- !!!! Driver Class Path !!!! -->
+    <classPathEntry location="D:\Maven\Repo\mysql\mysql-connector-java\5.1.31\mysql-connector-java-5.1.31.jar"/>
+
+    <!--数据库链接URL，用户名、密码 -->
+    <context id="MySQL" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="${db.driverClassName}"
+                        connectionURL="${db.url}"
+                        userId="${db.username}"
+                        password="${db.password}">
+        </jdbcConnection>
+
+        <!--是否启用java.math.BigDecimal-->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- 配置model类与mapper的文件位置 -->
+        <javaModelGenerator targetPackage="com.zhp.model" targetProject="C:\Users\Administrator\amall\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"  targetProject="C:\Users\Administrator\amall\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zhp.mapper"  targetProject="C:\Users\Administrator\amall\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!-- !!!! Table Configurations !!!! -->
+
+        <table tableName="shopping" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" domainObjectName="Shopping">
+        </table>
+
+    </context>
+</generatorConfiguration>
